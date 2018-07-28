@@ -80,6 +80,8 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
-      
+
+const meetpointController = require('./controllers/meetpointController');
+app.use('/api/meetpoints', meetpointController);
 
 module.exports = app;

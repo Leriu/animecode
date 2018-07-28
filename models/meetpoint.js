@@ -4,8 +4,14 @@ const Schema = mongoose.Schema;
 const meetpointSchema = new Schema({
     name: String,
     description: String,
-    location: { type: { type: String }, coordinates: [Number] }
-  });
+    location: { type: { type: String }, coordinates: [Number] },
+    direcction: String
+  },{
+    timestamps: {
+        createdAt: "created_at",
+        updatedAt: "updated_at"
+    }
+});
   meetpointSchema.index({ location: '2dsphere' });
 
 const Meetpoint = mongoose.model('Meetpoint', meetpointSchema);
