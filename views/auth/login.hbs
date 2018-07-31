@@ -1,35 +1,29 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 centmar">
+        <h2>Login</h2>
+        <form action="/auth/login" method="POST" id="form-container">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+          {{#if message }}
+            <div class="error-message">{{ message }}</div>
+          {{/if}}
+          <button type="submit" class="btn btn-info btn-block">Login</button>
 
-<div class="container-login">
-  <br>
-  <form action="/auth/login" class="form-horizontal" method="POST" id="form-container">
-    <div class="form-group">
-        <h2><strong><em>Login</em></strong></h2>
-         <label for="username" class="control-label col-md-7">Username</label>
-      <div class="col-md-5 col-md-offset-10">
-         <input id="username" type="text" class="form-control" name="username" placeholder="JonSnow">
+          <p class="account-message">
+            Don't have an account yet?
+            <a href="/auth/signup">Signup</a>
+          </p>
+        </form>
       </div>
     </div>
-          <br><br>
-    <div class="group-form">
-          <label for="password" class="control-label col-md-7">Password</label>
-       <div class="checkbox col-md-5 col-md-offset-10">
-          <input id="password" type="password" class="form-control" name="password" placeholder="Your password">
-            {{#if message }}
-              <div class="error-message">{{ message }}</div>
-            {{/if}}
-       </div>
-      </div>
-          <br><br>
-        <div class="form-group">
-          <div class="checkbox col-md-5 col-md-offset-10">
-           <button>Login</button>
-           <p class="account-message">
-             Don't have an account yet?
-           <a href="/auth/login">Signup</a>
-          </div>
-        </div>
-  </form>
- </div>
-      
- 
-    
+  </div>
+</section>
+
