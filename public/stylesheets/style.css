@@ -1,5 +1,4 @@
 body {
-
   background-color: #77C2A7; }
 
 .card {
@@ -7,7 +6,6 @@ body {
 
 a {
   color: #00B7FF; }
-
 
 h1 {
   font-family: Open Sans;
@@ -222,6 +220,5 @@ nav a {
   position: absolute;
   height: -700px;
   margin-left: 30px; }
-
 
 /*# sourceMappingURL=style.css.map */
