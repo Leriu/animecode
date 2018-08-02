@@ -45,7 +45,43 @@ h1 {
 .bgcolor {
   background-color: #77C2A7 !important; }
 
-.text-center {
-  color: darkslategrey !important; }
+h3 {
+  color: #77C2A7; }
+
+.genero li {
+  list-style: none; }
+
+.genero i {
+  color: #77C2A7 !important; }
+
+.aficiones li {
+  list-style: none; }
+
+.aficiones i {
+  color: #77C2A7 !important; }
+
+.card-body img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.nosotros li {
+  list-style: none; }
+
+.nosotros i {
+  color: #77C2A7 !important; }
+
+.click {
+  list-style: none; }
+
+.click i {
+  color: cadetblue !important; }
+
+.btn {
+  background-color: #343a40 !important;
+  color: white; }
+
+input {
+  background-color: white; }
 
 /*# sourceMappingURL=style.css.map */
