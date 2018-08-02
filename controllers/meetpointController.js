@@ -2,7 +2,7 @@ const express = require('express');
 const mpControl = express.Router();
 const Meetpoint = require('../models/meetpoint');
 
-mpControl.get('/meetpoints', (req,res,next)=>{
+mpControl.get('/', (req,res,next)=>{
     Meetpoint.find({},(err,docs)=>{
         res.status(200).json({ docs });
     })
