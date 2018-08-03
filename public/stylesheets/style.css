@@ -84,4 +84,8 @@ h3 {
 input {
   background-color: white; }
 
+#map {
+  width: 500px;
+  height: 500px; }
+
 /*# sourceMappingURL=style.css.map */

@@ -1,28 +1,43 @@
-<h1>{{name}}</h1>
-<p>{{location.address}}</p>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div id="map"></div>
 
-<script src=""></script>
 <script>
-   let center = {
-       lat:{{location.coordinates.[index]}},
-       lng:{{location.coordinates.[index]}}
-   };
-   let title = '{{name}}'
+    window.onload = () => {
+        const ironhackMEX = {
+        lat: 19.3977864,
+        lng: -99.1714789
+    };
+    
+    const markers = []
+    
+    const map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 13,
+      center: ironhackMEX
+    });
+  
+    const center = {
+      lat: undefined,
+      lng: undefined
+    }; 
 
-   const map = new google.maps.Map(
-       document.getElementById('map'),
-       {
-           center,
-           zoom:
-       }
-   )
-   const marker = new google.maps.Marker({
-       map,
-       position:center,
-       title,
-       animation: google.maps.Animation.BOUNCE
-   })
 
+  
+  fetch('/api/meetpoints')
+  .then(r => {
+      if(!r.ok) return Promise.reject(r.statusText);
+      return r.json();
+  })
+  .then(res => {
+      return console.log(res);
+  })
+}
+    
 </script>
