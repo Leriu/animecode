@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const mangaSchema = new Schema({
-    userid: String,
+    userid: {type : mongoose.Schema.Types.ObjectId, ref: 'User'},
     manganame: String,
     author: String,
     caps: Number,
@@ -16,13 +16,14 @@ const mangaSchema = new Schema({
         'spokon',
         'nekketsu',
         'gekiga',
-        'maho-shojo',
+        'maho_shojo',
         'yuri',
         'yaoi',
         'jidaimono'
         ]
     },
-    img_review: String,
+    img_preview: String,
+    manga: Array,
     traducedby: String,
 },{
     timestamps: {

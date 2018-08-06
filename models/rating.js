@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const rateSchema = new Schema({
-    userID: String,
-    mangaID: String,
+    userID: {type : mongoose.Schema.Types.ObjectId, ref: 'User'},
+    mangaID: {type : mongoose.Schema.Types.ObjectId, ref: 'Manga'},
     rate: {
         type: String,
         enum: [

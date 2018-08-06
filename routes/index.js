@@ -2,21 +2,33 @@ const express = require('express');
 const router  = express.Router();
 const Manga = require('../models/manga');
 const User = require('../models/User');
-//const fs = require('fs');
-//const navbar = fs.readFileSync('./views/navbar.hbs', 'utf8');
 
-//const navComponent = { navbar: navbar };
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index', { user: req.user });
+  Manga.find()
+  .then(mangas =>{
+    res.render('index', { user: req.user, mangas });
+  })
+  .catch(e => {
+    console.log(e);
+  })
+  
+});
+
+router.get('/manga/:id', (req, res) => {
+  let mangaID = req.params.id;
+  Manga.findOne({_id: `${mangaID}`})
+    .then(manga =>{
+      res.render('/mangas/manga_details', { manga })
+    })
 });
 
 router.get('/new', (req, res, next) => {
-  res.render('new', { user: req.user });
+  res.render('/meetpoints/new', { user: req.user });
 });
 
 router.get('/meetpoint', (req, res, next) => {
-  res.render('meetPoint', { user: req.user });
+  res.render('/meetpoints/meetPoint', { user: req.user });
 });
 
 router.get('/profile/:id', (req, res, next) => {
@@ -31,11 +43,11 @@ router.get('/profile/:id', (req, res, next) => {
 });
 
 router.get('/aboutus', (req, res, next) => {
-  res.render('aboutus', { user: req.user });
+  res.render('aboutus');
 });
 
 router.get('/contact', (req, res, next) => {
-  res.render('contact', { user: req.user });
+  res.render('contact');
 });
 
 router.get("/logout", (req, res) => {

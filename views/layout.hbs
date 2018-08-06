@@ -52,7 +52,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/profile/{{user.id}}"><img class="rounded-circle" src="{{#if user.userimage}}{{user.userimage}}{{else}} /images/perfil/perfil_2.jpg {{/if}}" width="35px" height="35px"></a>
+          <a class="nav-link" href="{{#if user}}/profile/{{user.id}}{{else}}/auth/signup{{/if}}"><img class="rounded-circle" src="{{#if user}} /images/userspics/{{user.userimage}} {{else}} /images/profile_images/perfil_2.jpg {{/if}}" width="35px" height="35px"></a>
         </li>
         {{#if user}}
           <li class="nav-item">
@@ -63,7 +63,7 @@
           <a class="nav-link maut" href="/auth/signup">Signup</a>
         </li>
         <li class="nav-item">
-          /
+          <span class="nav-link maut">/</span>
         </li>
         <li class="nav-item">
           <a class="nav-link maut" href="/auth/login">Login in</a>
