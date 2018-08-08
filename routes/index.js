@@ -22,4 +22,8 @@ router.get('/contact', (req, res, next) => {
   res.render('contact');
 });
 
+router.get('/logo', (req, res, next) => {
+  res.render('logo');
+});
+
 module.exports = router;
