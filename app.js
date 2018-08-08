@@ -12,6 +12,8 @@ const path         = require('path');
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
+
+const fileUpload = require('express-fileupload');
     
 
 mongoose.Promise = Promise;
@@ -33,7 +35,16 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: "animecode-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 
+app.use(fileUpload());
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
@@ -61,12 +72,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 
 
 // Enable authentication using session + passport
-app.use(session({
-  secret: 'irongenerator',
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore( { mongooseConnection: mongoose.connection })
-}))
+
 app.use(flash());
 require('./passport')(app);
     

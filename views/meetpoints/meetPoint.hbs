@@ -1,5 +1,17 @@
-window.onload = () => {
-    const ironhackMEX = {
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    window.onload = () => {
+        const ironhackMEX = {
         lat: 19.3977864,
         lng: -99.1714789
     };
@@ -15,7 +27,7 @@ window.onload = () => {
       lat: undefined,
       lng: undefined
     }; 
-  };
+
 
   
   fetch('/api/meetpoints')
@@ -26,3 +38,6 @@ window.onload = () => {
   .then(res => {
       return console.log(res);
   })
+}
+    
+</script>

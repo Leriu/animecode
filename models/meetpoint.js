@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const meetpointSchema = new Schema({
+    userID: {type : mongoose.Schema.Types.ObjectId, ref: 'User'},
     name: String,
     description: String,
     location: { type: { type: String }, coordinates: [Number] },

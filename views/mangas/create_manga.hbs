@@ -1,0 +1,75 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 centmar">
+        <h2>Login</h2>
+        <form action="/createnewmanga" method="POST" id="form-container">
+        <div class="form-group">
+          <label for="img_review">Preview image</label>
+          <input type="file" name="img_preview" class="form-control" id="img_preview">
+        </div>
+        <div class="form-group">
+          <label for="manganame">Manga name</label>
+          <input type="text" name="manganame" class="form-control" id="manganame" placeholder="Manga name">
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" name="author" class="form-control" id="author" placeholder="Author">
+        </div>
+        <div class="form-group">
+          <label for="caps">Number of chapters</label>
+          <input type="number" name="caps" class="form-control" id="caps" placeholder="Chapters">
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="gore">
+          <label class="form-check-label" for="inlineCheckbox1">Gore</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="mecha">
+          <label class="form-check-label" for="inlineCheckbox2">Mecha</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="ecchi">
+          <label class="form-check-label" for="inlineCheckbox1">Ecchi</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="harem">
+          <label class="form-check-label" for="inlineCheckbox2">Harem</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="spokon">
+          <label class="form-check-label" for="inlineCheckbox1">Spokon</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="nekketsu">
+          <label class="form-check-label" for="inlineCheckbox2">Nekketsu</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="gekiga">
+          <label class="form-check-label" for="inlineCheckbox1">Gekiga</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="maho-shojo">
+          <label class="form-check-label" for="inlineCheckbox2">Maho-shojo</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="yuri">
+          <label class="form-check-label" for="inlineCheckbox2">Yuri</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="yaoi">
+          <label class="form-check-label" for="inlineCheckbox2">Yaoi</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="jidaimono">
+          <label class="form-check-label" for="inlineCheckbox2">Jidaimono</label>
+        </div>
+          {{#if message }}
+            <div class="error-message">{{ message }}</div>
+          {{/if}}
+          <button type="submit" class="btn btn-info btn-block">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
