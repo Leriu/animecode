@@ -48,28 +48,10 @@ h1 {
 h3 {
   color: #77C2A7; }
 
-.genero li {
-  list-style: none; }
-
-.genero i {
-  color: #77C2A7 !important; }
-
-.aficiones li {
-  list-style: none; }
-
-.aficiones i {
-  color: #77C2A7 !important; }
-
 .card-body img {
   display: block;
   margin-left: auto;
   margin-right: auto; }
-
-.nosotros li {
-  list-style: none; }
-
-.nosotros i {
-  color: #77C2A7 !important; }
 
 .click {
   list-style: none; }
@@ -84,8 +66,10 @@ h3 {
 input {
   background-color: white; }
 
-#map {
-  width: 500px;
-  height: 500px; }
+.yeahh {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
 
 /*# sourceMappingURL=style.css.map */
