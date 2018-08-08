@@ -17,11 +17,11 @@ mangaRouter.post("/create_manga", (req, res) => {
     }
 
     const newManga = new Manga({
-        userid = userid,
+        userid: userid,
         manganame,
         author,
         caps,
-        genre = [],
+        genre: [],
         img_review,
         manga,
         traducedby

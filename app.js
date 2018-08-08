@@ -53,7 +53,6 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -82,6 +81,9 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
+
+const mangaRoutes = require('./routes/manga');
+app.use('/manga', mangaRoutes);
 
 const meetpointController = require('./controllers/meetpointController');
 app.use('/api/meetpoints', meetpointController);

@@ -67,8 +67,8 @@ authRoutes.post("/signup", (req, res, next) => {
         userimage.mv(a + '/public/images/userspics/' + userimage.name, function(err) {
           if (err)
             return res.status(500).send(err);
+            res.redirect("/auth/login");
         });
-        res.redirect("/login");
       }
     });
   });
