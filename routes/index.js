@@ -23,12 +23,13 @@ router.get('/manga/:id', (req, res) => {
     })
 });
 
+
 router.get('/new', (req, res, next) => {
-  res.render('/meetpoints/new', { user: req.user });
+  res.render('meetpoints/new', { user: req.user });
 });
 
 router.get('/meetpoint', (req, res, next) => {
-  res.render('/meetpoints/meetPoint', { user: req.user });
+  res.render('meetpoints/meetPoint', { user: req.user });
 });
 
 router.get('/profile/:id', (req, res, next) => {
@@ -43,21 +44,16 @@ router.get('/profile/:id', (req, res, next) => {
 });
 
 router.get('/aboutus', (req, res, next) => {
-  res.render('aboutus');
+  res.render('aboutus', { user: user });
 });
 
 router.get('/contact', (req, res, next) => {
-  res.render('contact');
+  res.render('contact', { user: user });
 });
 
-<<<<<<< HEAD
-router.get('/logo', (req, res, next) => {
-  res.render('logo');
-=======
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
->>>>>>> bc4603600240081a008552d3a6c695c1fbd56ebd
 });
 
 module.exports = router;
