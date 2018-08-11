@@ -3,16 +3,20 @@ const mangaRouter  = express.Router();
 const Manga = require('../models/manga');
 let generos = [];
 
+let direcction = __dirname;
+let a = direcction.split("routes")[0];
+
 mangaRouter.get('/createmanga', (req, res) => {
-    res.render('/mangas/create_manga');
+    res.render('mangas/createmanga');
 });
 
 mangaRouter.post("/createmanga", (req, res) => {
     let userid = req.user.id;
+    let img_preview = req.files.img_preview;
     let { manganame, author, caps, manga } = req.body;
 
-    if( { manganame, author, caps, manga } != "" ){
-        res.render('/mangas/create_manga', { message: "Complete all fields" });
+    if( { manganame, author, caps } === "" ){
+        res.render('mangas/createmanga', { message: "Complete all fields" });
         return;
     }
 
@@ -24,14 +28,13 @@ mangaRouter.post("/createmanga", (req, res) => {
         manganame,
         author,
         caps,
-        img_review,
-        manga,
-        traducedby
+        img_preview: img_preview.name,
+        manga
       });
 
       newManga.save((err) => {
         if (err) {
-          res.render("/mangas/create_manga", { message: "Something went wrong" });
+          res.render("mangas/createmanga", { message: "Something went wrong" });
         } else {
           img_preview.mv(a + '/public/images/previewimages/' + img_preview.name, function(err) {
             if (err)
