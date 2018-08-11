@@ -1,4 +1,4 @@
-<section>
+<section class="my-3 py-3">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -8,36 +8,41 @@
     </div>
 </section>
 
-
 <script>
     window.onload = () => {
         const ironhackMEX = {
         lat: 19.3977864,
         lng: -99.1714789
-    };
+        };
     
-    const markers = []
-    
-    const map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 13,
-      center: ironhackMEX
-    });
-  
-    const center = {
-      lat: undefined,
-      lng: undefined
-    }; 
+        const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 18,
+        center: ironhackMEX
+        });
 
+        var decodedJson = decodeURIComponent("{{{meetpointJson}}}");
+        var markers = JSON.parse(decodedJson);
+        
+        var centmark = new google.maps.Marker({
+            position: ironhackMEX,
+            map: map
+        })
 
-  
-  fetch('/api/meetpoints')
-  .then(r => {
-      if(!r.ok) return Promise.reject(r.statusText);
-      return r.json();
-  })
-  .then(res => {
-      return console.log(res);
-  })
+        console.log(markers)
+
+        function addMarker(marker){
+            var mark = new google.maps.Marker({
+                position: {
+                    lat: marker.location.coordinates[1],
+                    lng: marker.location.coordinates[0]
+                },
+                map: map
+            })
+        }
+
+        for(i= 0; i< markers.length; i++){
+            addMarker(markers[i]);
+        } 
 }
     
 </script>

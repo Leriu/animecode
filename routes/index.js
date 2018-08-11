@@ -17,26 +17,18 @@ router.get('/', (req, res, next) => {
 
 router.get('/manga/:id', (req, res) => {
   let mangaID = req.params.id;
-  Manga.findOne({_id: `${mangaID}`})
+  Manga.findOne({id: `${mangaID}`})
     .then(manga =>{
       res.render('/mangas/manga_details', { manga })
     })
 });
 
 
-router.get('/new', (req, res, next) => {
-  res.render('meetpoints/new', { user: req.user });
-});
-
-router.get('/meetpoint', (req, res, next) => {
-  res.render('meetpoints/meetPoint', { user: req.user });
-});
-
 router.get('/profile/:id', (req, res, next) => {
   let userid = req.params.id;
-  User.findOne({_id: `${userid}`})
-        .then(user => {
-          res.render('profile', { user: user });
+  User.findOne({id: `${userid}`})
+        .then(() => {
+          res.render('profile', { user: req.user });
         })
         .catch( e => {
           console.log(e);
@@ -44,11 +36,11 @@ router.get('/profile/:id', (req, res, next) => {
 });
 
 router.get('/aboutus', (req, res, next) => {
-  res.render('aboutus', { user: user });
+  res.render('aboutus', { user: req.user });
 });
 
 router.get('/contact', (req, res, next) => {
-  res.render('contact', { user: user });
+  res.render('contact', { user: req.user });
 });
 
 router.get("/logout", (req, res) => {

@@ -7,21 +7,23 @@ mangaRouter.get('/createmanga', (req, res) => {
     res.render('/mangas/create_manga');
 });
 
-mangaRouter.post("/create_manga", (req, res) => {
-    let userid = req.params.id;
-    let { manganame, author, caps, gore, mecha, ecchi, harem, spokon, nekketsu, gekiga, maho_shojo, yuri, yaoi, jidaimono, img_review, traducedby, manga } = req.body;
+mangaRouter.post("/createmanga", (req, res) => {
+    let userid = req.user.id;
+    let { manganame, author, caps, manga } = req.body;
 
-    if( { manganame, author, caps, gore, mecha, ecchi, harem, spokon, nekketsu, gekiga, maho_shojo, yuri, yaoi, jidaimono, img_review, traducedby, manga } != "" ){
+    if( { manganame, author, caps, manga } != "" ){
         res.render('/mangas/create_manga', { message: "Complete all fields" });
         return;
     }
+
+    if (!req.files)
+      return res.render("mangas/createmanga", { message: "The userimage wasn't uploaded" });
 
     const newManga = new Manga({
         userid: userid,
         manganame,
         author,
         caps,
-        genre: [],
         img_review,
         manga,
         traducedby
@@ -31,7 +33,11 @@ mangaRouter.post("/create_manga", (req, res) => {
         if (err) {
           res.render("/mangas/create_manga", { message: "Something went wrong" });
         } else {
-          res.redirect("/profile/:id");
+          img_preview.mv(a + '/public/images/previewimages/' + img_preview.name, function(err) {
+            if (err)
+              return res.status(500).send(err);
+              res.redirect("/profile/" + userid);
+          });
         }
       });
 });

@@ -37,7 +37,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   secret: "animecode-secret",
-  cookie: { maxAge: 60000 },
+  resave: true,
+  saveUninitialized: true,
+  cookie: { maxAge: 3600000 },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
@@ -83,9 +85,9 @@ const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
 const mangaRoutes = require('./routes/manga');
-app.use('/manga', mangaRoutes);
+app.use('/mangas', mangaRoutes);
 
-const meetpointController = require('./controllers/meetpointController');
-app.use('/api/meetpoints', meetpointController);
+const meetpointRouter = require('./routes/meetpoint');
+app.use('/meetpoints', meetpointRouter);
 
 module.exports = app;
