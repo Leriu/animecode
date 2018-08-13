@@ -18,7 +18,7 @@ const fileUpload = require('express-fileupload');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/animecode', {useMongoClient: true})
+  .connect('mongodb://<mangacode>:<mangacode>@ds259351.mlab.com:59351/mangacode', {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
