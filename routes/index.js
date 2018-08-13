@@ -18,9 +18,8 @@ router.get('/', (req, res, next) => {
 
 router.get('/profile/:id', (req, res, next) => {
   let userid = req.params.id;
-  Manga.find().populate('userid')
+  Manga.find({userid: `${userid}`}).populate('userid')
         .then(mangas => {
-          console.log(mangas)
           res.render('profile', { user: req.user, mangas });
         })
         .catch( e => {

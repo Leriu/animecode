@@ -7,6 +7,7 @@
     "dev": "DEBUG=animecode:* nodemon ./bin/www"
   },
   "dependencies": {
+    "3d-flip-book": "^1.9.7",
     "bcryptjs": "^2.4.3",
     "body-parser": "~1.18.2",
     "connect-ensure-login": "^0.1.1",

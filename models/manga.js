@@ -23,7 +23,7 @@ const mangaSchema = new Schema({
         ]
     },
     img_preview: String,
-    manga: Array,
+    manga: String,
     traducedby: String,
 },{
     timestamps: {

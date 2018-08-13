@@ -4,12 +4,16 @@
       <div class="col-md-6 centmar">
         <h2>Create a new manga</h2>
         <form action="/mangas/createmanga" method="POST" id='uploadForm'  ref='uploadForm'  encType="multipart/form-data">
-        <div class="input-group mb-3">
-          <div class="custom-file">
-            <input type="file" name="img_preview" class="custom-file-input" id="img_preview">
-            <label class="custom-file-label" for="img_preview">Choose image</label>
+        <div class="form-group">
+           <label for="img_preview">Preview image</label>
+          <div class="input-group mb-3">
+            <div class="custom-file">
+              <input type="file" name="img_preview" class="custom-file-input" id="img_preview">
+              <label class="custom-file-label" for="img_preview">Choose image</label>
+            </div>
           </div>
         </div>
+        
         <div class="form-group">
           <label for="manganame">Manga name</label>
           <input type="text" name="manganame" class="form-control" id="manganame" placeholder="Manga name">
@@ -44,6 +48,16 @@
         <div class="form-group">
           <label for="traducedby">Traduced by</label>
           <input type="text" name="traducedby" class="form-control" id="traducedby" placeholder="Traduced by...">
+        </div>
+
+         <div class="form-group">
+           <label for="manga">Manga pdf</label>
+          <div class="input-group mb-3">
+            <div class="custom-file">
+              <input type="file" name="manga" class="custom-file-input" id="manga">
+              <label class="custom-file-label" for="manga">Choose file</label>
+            </div>
+          </div>
         </div>
           {{#if message }}
             <div class="error-message">{{ message }}</div>

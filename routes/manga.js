@@ -14,13 +14,15 @@ mangaRouter.get('/:id', (req, res) => {
   console.log(mangaID)
   Manga.findOne({ "_id":  `${mangaID}` })
     .then(manga => {
-      res.render('mangas/manga_details', {user: req.user, manga })
+      res.render('mangas/manga_details', {user: req.user, manga , manga2: encodeURIComponent(JSON.stringify(manga)) })
     })
 });
 
 mangaRouter.post("/createmanga", (req, res) => {
     let userid = req.user.id;
     let img_preview = req.files.img_preview;
+    let pdf = req.files.manga;
+    let directory = "/images/pdfs/";
     let { manganame, author, caps, manga, genre, traducedby } = req.body;
 
     if( { manganame, author, caps, genre, traducedby } === "" ){
@@ -37,7 +39,7 @@ mangaRouter.post("/createmanga", (req, res) => {
         author,
         caps,
         img_preview: img_preview.name,
-        manga,
+        manga: directory + pdf.name,
         traducedby,
         genre
       });
@@ -46,11 +48,14 @@ mangaRouter.post("/createmanga", (req, res) => {
         if (err) {
           res.render("mangas/createmanga", { message: "Something went wrong" });
         } else {
-          img_preview.mv(a + '/public/images/previewimages/' + img_preview.name, function(err) {
-            if (err)
+          img_preview.mv(a + '/public/images/previewimages/' + img_preview.name, function() {
+            pdf.mv(a + '/public/images/pdfs/' + pdf.name, function(err){
+              if (err)
               return res.status(500).send(err);
               res.redirect("/profile/" + userid);
+            })
           });
+          
         }
       });
 });
