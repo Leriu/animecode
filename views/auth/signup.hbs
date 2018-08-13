@@ -4,10 +4,13 @@
       <div class="col-md-6 centmar">
         <h2>Signup</h2>
         <form action="/auth/signup" method="POST" id='uploadForm'  ref='uploadForm'  encType="multipart/form-data">
-           <div class="form-group">
-            <label for="userimage">Upload your profile photo</label>
-            <input type="file" class="form-control-file" name="userimage" id="userimage">
+           <div class="input-group mb-3">
+            <div class="custom-file">
+              <input type="file" name="userimage" class="custom-file-input" id="userimage">
+              <label class="custom-file-label" for="userimage">Choose image</label>
+            </div>
           </div>
+  
           <div class="form-group">
             <label for="username">User name</label>
             <input type="text" name="username" class="form-control" id="username"  placeholder="Enter username">
@@ -27,9 +30,11 @@
           {{/if}}
           <button type="submit" class="btn btn-info btn-block">Create account</button>
           <br>
-          <div class="form-group">
-            <a href="#" class="badge badge-dark">Forgot your password?</a>
-          </div>
+          <p class="account-message">
+            You already have an account?
+            <a href="/auth/login" class="badge badge-dark">Login</a>
+          </p>
+         
         </form>
       </div>
     </div>

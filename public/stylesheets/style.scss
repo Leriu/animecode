@@ -29,9 +29,9 @@ a {
   text-align: center;
 }
 .htypwrite{
-  margin: 10px;
-  text-align: right;
-  color: white;
+  text-align: center;
+  color: #77c2a7;
+  font-size: 10vh;
 }
 .footcont{
    margin: 0 !important;
@@ -71,4 +71,12 @@ input{
 }
 #map{
   height: 500px;
+}
+.pharallaxeffect{
+  background-image: url('/images/portada/fondo-pharalax.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 600px;
+  text-align: center;
 }

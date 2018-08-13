@@ -59,6 +59,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+hbs.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return v1.fn(this);
+  }
+  continue;
+});
 
 
 hbs.registerHelper('ifUndefined', (value, options) => {
