@@ -61,9 +61,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 hbs.registerHelper('ifCond', function(v1, v2, options) {
   if(v1 === v2) {
-    return v1.fn(this);
+    return options.fn(this);
   }
-  continue;
+  return options.inverse(this);
 });
 
 
