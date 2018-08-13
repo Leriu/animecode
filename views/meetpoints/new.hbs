@@ -5,6 +5,10 @@
             <div class="col col-md-6 centmar">
                 <form method="POST" action="/meetpoints/new">
                     <div class="form-group">
+                        <label for="direction">Address</label>
+                        <input class="form-control" type="text" name="direction" required id="address" placeholder="Address">
+                    </div>
+                    <div class="form-group">
                         <label for="name">Meetpoint Name</label>
                         <input class="form-control" type="text" name="name" placeholder="Meetpoint Name">
                     </div>
@@ -13,9 +17,8 @@
                         <input class="form-control" type="text" id="description" name="description" placeholder="Description">
                     </div>
                     <div class="form-group">
-                        <label>Address</label>
-                        <input class="form-control" type="text" name="latitude" placeholder="Latitude" ><br>
-                        <input class="form-control" type="text" name="longitude" placeholder="Longitude">
+                        <input class="form-control" type="hidden" id="lat" name="latitude" placeholder="Latitude" ><br>
+                        <input class="form-control" type="hidden" id="lng" name="longitude" placeholder="Longitude">
                     </div>
                     <button type="submit" class="btn btn-info btn-block">Crear</button>
                 </form>
@@ -23,3 +26,22 @@
         </div>
     </div>
 </section>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA197tFJG-webKqA50xYKRp01rKXkLNJw&libraries=places"></script>
+<script>
+let address = document.getElementById('address') 
+let lat = document.getElementById('lat')
+let lng = document.getElementById('lng')
+
+function autoComplete(input, inputLat, inputLng){
+    const dropdown = new google.maps.places.Autocomplete(input)
+
+    dropdown.addListener('place_changed', ()=>{
+        let place = dropdown.getPlace()
+        console.log(place)
+        lat.value = place.geometry.location.lat()
+        lng.value = place.geometry.location.lng()
+    })
+}
+autoComplete(address, lat, lng)
+
+</script>

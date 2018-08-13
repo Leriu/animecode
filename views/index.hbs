@@ -46,32 +46,19 @@
           <h1 class="text-center">"Disfruta de tus fanmangas favoritos"</h1>
         </div>
       </div>
-      {{#each mangas}}
-        <div class="row my-5">
-          <div class="col col-md-4">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="" src="/images/previewimages/{{this.img_preview}}" data-holder-rendered="true" style="width: 226px; height: 320px;">
-          </div>
-
-          <div class="col col-md-4">
-            <div class="form-group">
-              <h2 class="featurette-heading">"{{this.manganame}}"</h2>
-            </div>
-            <div class="form-group">
-              <span class="card-title5"><i class="fa fa-user"></i>   Posted by : <i class="material-icons right">{{this.author}}</i></span>
-            </div>
-            <div class="form-group">
-              <span class="card-title5"><i class="fa fa-user-circle"></i>  Translated by : <i class="material-icons right">{{this.traducedby}}</i></span>
-            </div>
-            <div class="form-group">
-              <span class="card-title5"><i class="fa fa-calendar"></i>  Publication date : <i class="material-icons right"><br>{{this.created_at}}</i></span>
-            </div>
-            <br>
-             <div class="form-group">
-               <div class="col-md-3 col-md-offset-5">
-                <a href="/manga/{{this._id}}" type="button" class="btn btn-secondary">Read more</a>
-               </div>
-            </div>
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            {{#each mangas}}
+              <div class="col col-md-3">
+                <img class="rounded" src="/images/previewimages/{{this.img_preview}}" width="100%" height="200px">
+                <h5 class="text-center">{{this.manganame}}</h5>
+                <a class="btn btn-info btn-block" href="/mangas/{{this.id}}">Details...</a>
+              </div>
+            {{/each}}
           </div>
         </div>
-        {{/each}}
+      </div>
+    </div>
+        
 </section>

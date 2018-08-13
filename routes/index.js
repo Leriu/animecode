@@ -15,14 +15,6 @@ router.get('/', (req, res, next) => {
   
 });
 
-router.get('/manga/:id', (req, res) => {
-  let mangaID = req.params.id;
-  Manga.findOne({id: `${mangaID}`})
-    .then(manga =>{
-      res.render('/mangas/manga_details', { manga })
-    })
-});
-
 
 router.get('/profile/:id', (req, res, next) => {
   let userid = req.params.id;

@@ -7,7 +7,7 @@
         </div>
     </div>
 </section>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA197tFJG-webKqA50xYKRp01rKXkLNJw&libraries=places"></script>
 <script>
     window.onload = () => {
         const ironhackMEX = {
@@ -28,8 +28,6 @@
             map: map
         })
 
-        console.log(markers)
-
         function addMarker(marker){
             var mark = new google.maps.Marker({
                 position: {
@@ -44,5 +42,6 @@
             addMarker(markers[i]);
         } 
 }
+
     
 </script>

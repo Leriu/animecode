@@ -4,9 +4,11 @@
       <div class="col-md-6 centmar">
         <h2>Create a new manga</h2>
         <form action="/mangas/createmanga" method="POST" id='uploadForm'  ref='uploadForm'  encType="multipart/form-data">
-        <div class="form-group">
-          <label for="img_review">Preview image</label>
-          <input type="file" name="img_preview" class="form-control" id="img_preview">
+        <div class="input-group mb-3">
+          <div class="custom-file">
+            <input type="file" name="img_preview" class="custom-file-input" id="img_preview">
+            <label class="custom-file-label" for="img_preview">Choose image</label>
+          </div>
         </div>
         <div class="form-group">
           <label for="manganame">Manga name</label>
@@ -20,51 +22,29 @@
           <label for="caps">Number of chapters</label>
           <input type="number" name="caps" class="form-control" id="caps" placeholder="Chapters">
         </div>
-{{!--         
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="gore">
-          <label class="form-check-label" for="inlineCheckbox1">Gore</label>
+        <div class="form-group">
+          <label for="caps">Genre</label>
+          <div class="input-group mb-3">
+            <select class="custom-select" name="genre" id="genre">
+              <option selected>Choose...</option>
+              <option value="gore">Gore</option>
+              <option value="mecha">Mecha</option>
+              <option value="ecchi">Ecchi</option>
+              <option value="harem">Harem</option>
+              <option value="spokon">Spokon</option>
+              <option value="nekketsu">Nekketsu</option>
+              <option value="gekiga">Gekiga</option>
+              <option value="maho_shojo">Maho shojo</option>
+              <option value="yuri">Yuri</option>
+              <option value="yaoi">Yaoi</option>
+              <option value="jidaimono">Jidaimono</option>
+            </select>
+          </div>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="mecha">
-          <label class="form-check-label" for="inlineCheckbox2">Mecha</label>
+        <div class="form-group">
+          <label for="traducedby">Traduced by</label>
+          <input type="text" name="traducedby" class="form-control" id="traducedby" placeholder="Traduced by...">
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="ecchi">
-          <label class="form-check-label" for="inlineCheckbox1">Ecchi</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="harem">
-          <label class="form-check-label" for="inlineCheckbox2">Harem</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="spokon">
-          <label class="form-check-label" for="inlineCheckbox1">Spokon</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="nekketsu">
-          <label class="form-check-label" for="inlineCheckbox2">Nekketsu</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="gekiga">
-          <label class="form-check-label" for="inlineCheckbox1">Gekiga</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="maho-shojo">
-          <label class="form-check-label" for="inlineCheckbox2">Maho-shojo</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="yuri">
-          <label class="form-check-label" for="inlineCheckbox2">Yuri</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="yaoi">
-          <label class="form-check-label" for="inlineCheckbox2">Yaoi</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="jidaimono">
-          <label class="form-check-label" for="inlineCheckbox2">Jidaimono</label>
-        </div> --}}
           {{#if message }}
             <div class="error-message">{{ message }}</div>
           {{/if}}

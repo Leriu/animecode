@@ -1,7 +1,6 @@
 const express = require('express');
 const mangaRouter  = express.Router();
 const Manga = require('../models/manga');
-let generos = [];
 
 let direcction = __dirname;
 let a = direcction.split("routes")[0];
@@ -10,12 +9,21 @@ mangaRouter.get('/createmanga', (req, res) => {
     res.render('mangas/createmanga');
 });
 
+mangaRouter.get('/:id', (req, res) => {
+  let mangaID = req.params.id;
+  console.log(mangaID)
+  Manga.findOne({ "_id":  `${mangaID}` })
+    .then(manga => {
+      res.render('mangas/manga_details', {user: req.user, manga })
+    })
+});
+
 mangaRouter.post("/createmanga", (req, res) => {
     let userid = req.user.id;
     let img_preview = req.files.img_preview;
-    let { manganame, author, caps, manga } = req.body;
+    let { manganame, author, caps, manga, genre, traducedby } = req.body;
 
-    if( { manganame, author, caps } === "" ){
+    if( { manganame, author, caps, genre, traducedby } === "" ){
         res.render('mangas/createmanga', { message: "Complete all fields" });
         return;
     }
@@ -29,7 +37,9 @@ mangaRouter.post("/createmanga", (req, res) => {
         author,
         caps,
         img_preview: img_preview.name,
-        manga
+        manga,
+        traducedby,
+        genre
       });
 
       newManga.save((err) => {
