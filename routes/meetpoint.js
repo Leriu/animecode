@@ -5,7 +5,7 @@ const Meetpoint = require('../models/meetpoint');
 mpControl.get('/meetpoint', (req, res, next) => {
   Meetpoint.find()
   .then(meetpoints => {
-    res.render('meetpoints/meetPoint', { user: req.user, meetpointJson : encodeURIComponent(JSON.stringify(meetpoints))});
+    res.render('meetpoints/meetPoint', { user: req.user, meetpoints , meetpointJson : encodeURIComponent(JSON.stringify(meetpoints))});
   })
   .catch(e => {
     console.log(e);

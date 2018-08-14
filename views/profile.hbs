@@ -22,7 +22,7 @@
             </div> 
 
             <div class="form-group text-center">
-              <h4 class="text-center">Creat a meetpoint</h4>
+              <h4 class="text-center">Create meetpoint</h4>
               <li class="click"><i class="fas fa-map-marker-alt fa-2x"></i></li>
             </div>
 
@@ -58,7 +58,7 @@
               <div class="card">
                 <div class="card-header" id="headingOne">
                   <h5 class="mb-0">
-                    <button class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <button disabled="disabled" class="btn btn-info collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                       <i class="fab fa-readme"></i>   Mis fanMangas
                     </button>
                   </h5>
@@ -67,32 +67,33 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="card-body">
                     <div class="container">
-                      <div class="row">
+                      <div class="row justify-content-center">
                         {{#each mangas}}
                           {{#ifCond mangas.userid._id user.id}}
 
-                          <div class="col-sm-3">
-                            <img src="/images/previewimages/{{this.img_preview}}" height="200px" width="150px">
-                            <h5 class="text-center">{{this.manganame}}</h5>
+                          <div class="col-sm-4">
+                            <div class="row">
+                              <div class="col md 12">
+                                <img src="/images/previewimages/{{this.img_preview}}" height="200px" width="150px">
+                              </div>
+                            </div>
+                            <div class="row my-2">
+                              <div class="col-md-12">
+                                <a class="aprof" href="/mangas/{{this.id}}"><h5 class="text-center">{{this.manganame}}</h5></a>
+                              </div>
+                            </div>
+                            <div class="row my-2">
+                              <div class="col col-md-6 text-right">
+                                <a class="btn btn-danger" href="/mangas/delete/{{id}}"> <i style="color:#ffffff !important" class="fas fa-trash-alt"></i> </a>
+                              </div>
+                              <div class="col col-md-6 text-left">
+                                <a class="btn btn-success"  href="/mangas/editar_manga/{{this.id}}"> <i style="color:#ffffff !important" class="fas fa-edit"></i> </a>
+                              </div>
+                            </div>
                           </div>
                           {{/ifCond}}
                         {{/each}}
-                        <div class="col-sm-3">
-                          <img src="https://4.bp.blogspot.com/-ijafovaZgoI/WPWKM2NH8pI/AAAAAAAAb2U/uAtmHcEEkcEhjb53pYuiWYKn673vDlvoQCLcB/s320/DBAF_Cap_01%2BPag.00.jpg" height="200px">
-                          <h5 class="text-center">Dragon Ball After the Future</h5>
-                        </div>
-                        <div class="col-sm-3">
-                          <img src="http://media-fancomics.theotaku.com/789182-20110808115733.jpg" height="200px">
-                          <h5 class="text-center">Question Café</h5>
-                        </div>
-                        <div class="col-sm-3">
-                          <img src="/images/FMAFireStarter/fire-starter-portada.jpg" height="200px">
-                          <h5 class="text-center">Fire Starter</h5>
-                        </div>
-                        <div class="col-sm-3">
-                          <img src="/images/MEJM/MEJM1.jpg" height="200px">
-                          <h5 class="text-center">Merry Jashin Mas</h5>
-                        </div>
+                        
                       </div>
                     </div>
                   </div>

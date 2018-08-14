@@ -81,6 +81,34 @@ input{
   text-align: center;
 }
 
+.fa, .fas{
+  color: #77c2a7 !important;
+}
+
+.aprof{
+  color: #000000 !important;
+  text-decoration: none;
+}
+.aprof h5{
+  font-size: 1.8vh !important;
+}
+
+.aprof:hover{
+  color: #77c2a7 !important;
+  text-shadow: 1px 2px 2px #000000;
+  text-decoration: none;
+}
+.logo{
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+.miku{
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
 ////3dflipbook
 
 #modal-wnd .modal-dialog {

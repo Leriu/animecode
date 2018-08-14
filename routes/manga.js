@@ -11,11 +11,22 @@ mangaRouter.get('/createmanga', (req, res) => {
 
 mangaRouter.get('/:id', (req, res) => {
   let mangaID = req.params.id;
-  console.log(mangaID)
   Manga.findOne({ "_id":  `${mangaID}` })
     .then(manga => {
       res.render('mangas/manga_details', {user: req.user, manga , manga2: encodeURIComponent(JSON.stringify(manga)) })
     })
+});
+
+mangaRouter.get('/delete/:id', (req, res) => {
+  let mangaid = req.params.id;
+  let userid = req.user.id;
+  Manga.findOneAndRemove({"_id": `${ mangaid }`})
+      .then(() => {
+        res.redirect('/profile/' + userid)
+      })
+      .catch(e => {
+        console.log(e);
+      })
 });
 
 mangaRouter.post("/createmanga", (req, res) => {
