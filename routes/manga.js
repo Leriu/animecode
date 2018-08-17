@@ -41,8 +41,8 @@ mangaRouter.post("/createmanga", (req, res) => {
         return;
     }
 
-    if (!req.files)
-      return res.render("mangas/createmanga", { message: "The userimage wasn't uploaded" });
+    if (typeof(req.files[0]) === "undefined" || typeof(req.files[1]) === "undefined")
+      return res.render("mangas/createmanga", { message: "Please select an image and pdf for your manga..." });
 
     const newManga = new Manga({
         userid: userid,
