@@ -6,7 +6,7 @@ let direcction = __dirname;
 let a = direcction.split("routes")[0];
 
 mangaRouter.get('/createmanga', (req, res) => {
-    res.render('mangas/createmanga');
+    res.render('mangas/createmanga', {user: req.user});
 });
 
 mangaRouter.get('/:id', (req, res) => {
